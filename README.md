@@ -14,14 +14,23 @@
 
 ---
 
-## Built With
+# Built With
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=react,typescript,vite,html,css,git,github,vscode,npm" />
-</p>
 
-<p align="center">
-  React · TypeScript · Vite · HTML5 · CSS3 · Git · GitHub · VS Code · npm
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"/>
+<img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
+
+<br/>
+
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+<img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white"/>
+<img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white"/>
+
 </p>
 
 ---
@@ -58,39 +67,39 @@
 
 ZKR Eclipse is a modern SaaS dashboard application designed to provide a complete management interface for projects, workspaces, users, products, orders, and business analytics.
 
-The project focuses on creating a premium user experience through a scalable frontend architecture, reusable components, and a centralized design system.
+The project focuses on delivering a premium user experience through:
 
-The application provides:
+* Scalable frontend architecture
+* Reusable component system
+* Centralized design tokens
+* Responsive layouts
+* Modern dashboard patterns
 
-* Advanced dashboard layouts
-* Workspace and project management
-* Data visualization interfaces
-* Reusable UI components
-* Responsive design patterns
-* Theme-ready architecture
+The platform provides a professional foundation for SaaS products, internal tools, and business management applications.
 
 ---
 
 # Features
 
-## Dashboard System
+## Dashboard
 
 * Analytics overview
 * Data visualization
 * Statistics cards
 * Interactive tables
-* Business insights interface
+* Business metrics interface
 
 ## Workspace Management
 
 * Project organization
 * Workspace views
-* User management interfaces
-* Product and order management pages
+* User management
+* Product management
+* Order management
 
 ## Component Library
 
-Reusable UI components:
+Reusable UI components including:
 
 * Buttons
 * Cards
@@ -104,7 +113,7 @@ Reusable UI components:
 
 ## Design System
 
-A centralized token-based design system controlling:
+A token-based design system managing:
 
 * Colors
 * Typography
@@ -113,9 +122,9 @@ A centralized token-based design system controlling:
 * Shadows
 * Animations
 
-All components consume shared CSS variables to maintain a consistent visual language.
+All components use shared CSS variables to maintain consistency throughout the application.
 
-## AI Automation Interface
+## Automation Interface
 
 The application includes an automation-focused interface designed for future AI-powered workflows and intelligent dashboard features.
 
@@ -125,39 +134,27 @@ The application includes an automation-focused interface designed for future AI-
 
 ## Frontend
 
-<p>
-<img src="https://skillicons.dev/icons?i=react" width="45"/>
-<img src="https://skillicons.dev/icons?i=typescript" width="45"/>
-<img src="https://skillicons.dev/icons?i=vite" width="45"/>
-<img src="https://skillicons.dev/icons?i=html" width="45"/>
-<img src="https://skillicons.dev/icons?i=css" width="45"/>
-</p>
+| Technology | Purpose                       |
+| ---------- | ----------------------------- |
+| React      | UI library                    |
+| TypeScript | Type-safe development         |
+| Vite       | Development and build tooling |
+| CSS        | Styling architecture          |
 
-* React
-* TypeScript
-* Vite
-* HTML5
-* CSS3
+## Architecture
 
-## Development Tools
-
-<p>
-<img src="https://skillicons.dev/icons?i=git" width="45"/>
-<img src="https://skillicons.dev/icons?i=github" width="45"/>
-<img src="https://skillicons.dev/icons?i=vscode" width="45"/>
-<img src="https://skillicons.dev/icons?i=npm" width="45"/>
-</p>
-
-* Git
-* GitHub
-* Visual Studio Code
-* npm
+| Technology             | Purpose                  |
+| ---------------------- | ------------------------ |
+| React Context          | Global providers         |
+| Custom Hooks           | Shared application logic |
+| Component Architecture | Reusable UI system       |
+| CSS Variables          | Design tokens            |
 
 ---
 
 # Architecture Overview
 
-ZKR Eclipse follows a modular frontend architecture:
+The application follows a modular frontend architecture:
 
 ```text
 Application Layer
@@ -175,7 +172,12 @@ Context Providers and Hooks
 Design System Tokens
 ```
 
-This architecture improves scalability, maintainability, and future feature development.
+This structure improves:
+
+* Scalability
+* Maintainability
+* Development speed
+* Code organization
 
 ---
 
@@ -203,10 +205,10 @@ ZKR-Eclipse/
 │   │   └── Reusable UI components
 │   │
 │   ├── context/
-│   │   └── React Context providers
+│   │   └── React context providers
 │   │
 │   ├── data/
-│   │   └── Mock application data
+│   │   └── Mock data
 │   │
 │   ├── hooks/
 │   │   └── Custom hooks
@@ -221,7 +223,7 @@ ZKR-Eclipse/
 │   │   └── Application state
 │   │
 │   └── styles/
-│       └── Global styles and tokens
+│       └── Global styles and design tokens
 │
 └── package.json
 ```
@@ -250,7 +252,7 @@ Start the development server:
 npm run dev
 ```
 
-The application will run at:
+Application:
 
 ```text
 http://localhost:5173
@@ -271,13 +273,13 @@ http://localhost:5173
 
 # Design System
 
-Design tokens are centralized in:
+Design tokens are located at:
 
 ```text
 src/styles/tokens.css
 ```
 
-The system manages:
+The system controls:
 
 * Brand colors
 * Typography
@@ -304,16 +306,16 @@ Updating the tokens automatically updates the entire interface.
 
 ---
 
-# Performance and Quality
+# Performance And Quality
 
 The project follows modern frontend practices:
 
-* Type-safe development with TypeScript
+* Type-safe development
 * Component-based architecture
 * Reusable UI patterns
 * Optimized build process
-* Maintainable folder organization
-* Scalable application structure
+* Clean folder organization
+* Scalable structure
 
 ---
 
@@ -339,7 +341,7 @@ Create a production build:
 npm run build
 ```
 
-Preview the production build:
+Preview:
 
 ```bash
 npm run preview
