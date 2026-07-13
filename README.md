@@ -369,7 +369,7 @@ MIT License
 
 # Contact
 
-## Zakaria
+## Zakariaa Adli
 
 GitHub
 https://github.com/zr7791474-blip
