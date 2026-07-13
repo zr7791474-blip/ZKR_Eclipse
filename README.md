@@ -14,7 +14,19 @@
 
 ---
 
-## Screenshots
+## Built With
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,typescript,vite,html,css,git,github,vscode,npm" />
+</p>
+
+<p align="center">
+  React · TypeScript · Vite · HTML5 · CSS3 · Git · GitHub · VS Code · npm
+</p>
+
+---
+
+# Screenshots
 
 <p align="center">
   <img src="./screens/Home.JPG" width="45%" alt="Home"/>
@@ -46,7 +58,7 @@
 
 ZKR Eclipse is a modern SaaS dashboard application designed to provide a complete management interface for projects, workspaces, users, products, orders, and business analytics.
 
-The project focuses on delivering a premium user experience through a scalable frontend architecture, reusable components, and a centralized design system.
+The project focuses on creating a premium user experience through a scalable frontend architecture, reusable components, and a centralized design system.
 
 The application provides:
 
@@ -78,21 +90,21 @@ The application provides:
 
 ## Component Library
 
-The project includes reusable UI components:
+Reusable UI components:
 
 * Buttons
 * Cards
 * Modals
-* Dropdowns
+* Dropdown menus
 * Toast notifications
 * Tables
 * Charts
-* Form elements
+* Forms
 * Layout components
 
 ## Design System
 
-A centralized token-based design system is implemented for:
+A centralized token-based design system controlling:
 
 * Colors
 * Typography
@@ -101,11 +113,11 @@ A centralized token-based design system is implemented for:
 * Shadows
 * Animations
 
-All components consume shared CSS variables to maintain consistency across the application.
+All components consume shared CSS variables to maintain a consistent visual language.
 
-## Automation Interface
+## AI Automation Interface
 
-The platform includes an automation-focused interface prepared for future AI-powered workflows and intelligent dashboard features.
+The application includes an automation-focused interface designed for future AI-powered workflows and intelligent dashboard features.
 
 ---
 
@@ -113,27 +125,33 @@ The platform includes an automation-focused interface prepared for future AI-pow
 
 ## Frontend
 
+<p>
+<img src="https://skillicons.dev/icons?i=react" width="45"/>
+<img src="https://skillicons.dev/icons?i=typescript" width="45"/>
+<img src="https://skillicons.dev/icons?i=vite" width="45"/>
+<img src="https://skillicons.dev/icons?i=html" width="45"/>
+<img src="https://skillicons.dev/icons?i=css" width="45"/>
+</p>
+
 * React
 * TypeScript
 * Vite
-
-## Styling
-
-* CSS Variables
-* Custom Design Tokens
-* Responsive CSS Architecture
-
-## State Management
-
-* React Context API
-* Custom Hooks
-* Application-level state management
+* HTML5
+* CSS3
 
 ## Development Tools
 
-* ESLint
-* Vite
-* Modern build tooling
+<p>
+<img src="https://skillicons.dev/icons?i=git" width="45"/>
+<img src="https://skillicons.dev/icons?i=github" width="45"/>
+<img src="https://skillicons.dev/icons?i=vscode" width="45"/>
+<img src="https://skillicons.dev/icons?i=npm" width="45"/>
+</p>
+
+* Git
+* GitHub
+* Visual Studio Code
+* npm
 
 ---
 
@@ -141,7 +159,7 @@ The platform includes an automation-focused interface prepared for future AI-pow
 
 ZKR Eclipse follows a modular frontend architecture:
 
-```
+```text
 Application Layer
         |
         |
@@ -157,13 +175,13 @@ Context Providers and Hooks
 Design System Tokens
 ```
 
-This architecture improves scalability, maintainability, and feature development speed.
+This architecture improves scalability, maintainability, and future feature development.
 
 ---
 
 # Project Structure
 
-```
+```text
 ZKR-Eclipse/
 
 ├── public/
@@ -182,13 +200,28 @@ ZKR-Eclipse/
 │
 ├── src/
 │   ├── components/
+│   │   └── Reusable UI components
+│   │
 │   ├── context/
+│   │   └── React Context providers
+│   │
 │   ├── data/
+│   │   └── Mock application data
+│   │
 │   ├── hooks/
+│   │   └── Custom hooks
+│   │
 │   ├── pages/
+│   │   └── Application pages
+│   │
 │   ├── router/
+│   │   └── Route configuration
+│   │
 │   ├── store/
+│   │   └── Application state
+│   │
 │   └── styles/
+│       └── Global styles and tokens
 │
 └── package.json
 ```
@@ -217,9 +250,9 @@ Start the development server:
 npm run dev
 ```
 
-Application will be available at:
+The application will run at:
 
-```
+```text
 http://localhost:5173
 ```
 
@@ -238,21 +271,22 @@ http://localhost:5173
 
 # Design System
 
-The design tokens are located at:
+Design tokens are centralized in:
 
-```
+```text
 src/styles/tokens.css
 ```
 
-The system controls:
+The system manages:
 
 * Brand colors
+* Typography
 * Layout spacing
 * Component radius
-* Shadow system
+* Shadows
 * Motion behavior
 
-Changing the tokens automatically updates the entire interface.
+Updating the tokens automatically updates the entire interface.
 
 ---
 
@@ -272,13 +306,14 @@ Changing the tokens automatically updates the entire interface.
 
 # Performance and Quality
 
-The project follows modern frontend development practices:
+The project follows modern frontend practices:
 
 * Type-safe development with TypeScript
 * Component-based architecture
 * Reusable UI patterns
 * Optimized build process
-* Maintainable code organization
+* Maintainable folder organization
+* Scalable application structure
 
 ---
 
@@ -316,11 +351,11 @@ npm run preview
 
 Contributions are welcome.
 
-To contribute:
+Steps:
 
 1. Fork the repository
 2. Create a feature branch
-3. Commit changes
+3. Commit your changes
 4. Push your branch
 5. Open a pull request
 
@@ -334,16 +369,16 @@ MIT License
 
 # Contact
 
-Zakaria
+## Zakaria
 
-GitHub:
+GitHub
 https://github.com/zr7791474-blip
 
-X:
+X (Twitter)
 https://x.com/zkr_ad
 
-WhatsApp:
+WhatsApp
 https://wa.me/212657516301
 
-Email:
+Email
 [zr7791474@gmail.com](mailto:zr7791474@gmail.com)
