@@ -1,0 +1,117 @@
+:root {
+  /* ---- Full mandated spectrum (green → teal → blue) ---- */
+  --palette-1: #d9ed92;
+  --palette-2: #b5e48c;
+  --palette-3: #99d98c;
+  --palette-4: #76c893;
+  --palette-5: #52b69a;
+  --palette-6: #34a0a4;
+  --palette-7: #168aad;
+  --palette-8: #1a759f;
+  --palette-9: #1e6091;
+  --palette-10: #184e77;
+
+  --palette-1-rgb: 217, 237, 146;
+  --palette-2-rgb: 181, 228, 140;
+  --palette-3-rgb: 153, 217, 140;
+  --palette-4-rgb: 118, 200, 147;
+  --palette-5-rgb: 82, 182, 154;
+  --palette-6-rgb: 52, 160, 164;
+  --palette-7-rgb: 22, 138, 173;
+  --palette-8-rgb: 26, 117, 159;
+  --palette-9-rgb: 30, 96, 145;
+  --palette-10-rgb: 24, 78, 119;
+
+  /* ---- Brand / Accent (drawn from the spectrum) ---- */
+  --color-accent: var(--palette-7); /* Teal — primary interactive */
+  --color-accent-strong: var(--palette-6); /* brighter teal-green (hover glow) */
+  --color-accent-dark: var(--palette-9); /* deep blue (gradient end) */
+  --color-accent-rgb: var(--palette-7-rgb);
+  --color-secondary: var(--palette-1); /* lightest green — sparing highlight/glow only */
+  --color-secondary-rgb: var(--palette-1-rgb);
+  --focus-ring: rgba(52, 160, 164, 0.4);
+
+  /* ---- Semantic ---- */
+  --color-success: var(--palette-4); /* green from the palette doubles as success */
+  --color-success-rgb: var(--palette-4-rgb);
+  --color-warning: #f59e0b;
+  --color-warning-rgb: 245, 158, 11;
+  --color-danger: #ef4444;
+  --color-danger-rgb: 239, 68, 68;
+
+  /* ---- Typography ---- */
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "JetBrains Mono", "SFMono-Regular", monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.875rem;
+  --fs-2xl: 2.5rem;
+
+  /* ---- Spacing ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* ---- Radius ---- */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 999px;
+
+  /* ---- Shadow ---- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.18);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 150ms;
+  --duration-base: 240ms;
+
+  /* ---- Layout ---- */
+  --sidebar-width: 264px;
+  --sidebar-width-collapsed: 76px;
+  --topbar-height: 68px;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0a1418;
+  --color-surface: #0f1e24;
+  --color-surface-raised: #142a32;
+  --color-surface-translucent: rgba(15, 30, 36, 0.72);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #f4faf9;
+  --color-text-secondary: #a9c2c2;
+  --color-text-muted: #71908f;
+  --overlay-hero: linear-gradient(
+    180deg,
+    rgba(10, 20, 24, 0.55) 0%,
+    rgba(10, 20, 24, 0.92) 100%
+  );
+}
+
+[data-theme="light"] {
+  --color-bg: #f6faf9;
+  --color-surface: #ffffff;
+  --color-surface-raised: #eaf3f1;
+  --color-surface-translucent: rgba(255, 255, 255, 0.72);
+  --color-border: rgba(10, 20, 24, 0.08);
+  --color-text-primary: #0a1418;
+  --color-text-secondary: #45605f;
+  --color-text-muted: #71908f;
+  --overlay-hero: linear-gradient(
+    180deg,
+    rgba(10, 20, 24, 0.3) 0%,
+    rgba(10, 20, 24, 0.8) 100%
+  );
+}

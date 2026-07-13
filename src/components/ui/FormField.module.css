@@ -1,0 +1,36 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.field :global(input),
+.field :global(select),
+.field :global(textarea) {
+  padding: 9px var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+  width: 100%;
+}
+
+.field :global(textarea) {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.field :global(input:focus),
+.field :global(select:focus),
+.field :global(textarea:focus) {
+  outline: none;
+  border-color: var(--color-accent);
+}

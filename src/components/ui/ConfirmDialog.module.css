@@ -1,0 +1,39 @@
+.wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.iconWrap[data-variant="danger"] {
+  color: var(--color-danger);
+  background-color: rgba(var(--color-danger-rgb), 0.12);
+}
+
+.iconWrap[data-variant="primary"] {
+  color: var(--color-accent);
+  background-color: rgba(var(--color-accent-rgb), 0.12);
+}
+
+.message {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  padding-top: 6px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}

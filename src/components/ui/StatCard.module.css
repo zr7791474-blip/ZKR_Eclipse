@@ -1,0 +1,102 @@
+.card {
+  --stat-accent: var(--color-accent);
+  position: relative;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.card:hover {
+  border-color: color-mix(in srgb, var(--stat-accent) 40%, transparent);
+  box-shadow:
+    var(--shadow-md),
+    0 0 0 1px color-mix(in srgb, var(--stat-accent) 8%, transparent),
+    0 12px 32px -8px color-mix(in srgb, var(--stat-accent) 25%, transparent);
+  transform: translateY(-2px);
+}
+
+.accentBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--stat-accent),
+    color-mix(in srgb, var(--stat-accent) 0%, transparent)
+  );
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background-color: color-mix(in srgb, var(--stat-accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--stat-accent) 20%, transparent);
+}
+
+.icon {
+  color: var(--stat-accent);
+}
+
+.sparkline {
+  width: 72px;
+  height: 28px;
+  overflow: visible;
+}
+
+.sparklinePath {
+  stroke: var(--stat-accent);
+  opacity: 0.75;
+}
+
+.label {
+  display: block;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2);
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xl);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.change {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-danger);
+  background-color: rgba(var(--color-danger-rgb), 0.1);
+}
+
+.change[data-positive] {
+  color: var(--color-success);
+  background-color: rgba(var(--color-success-rgb), 0.1);
+}

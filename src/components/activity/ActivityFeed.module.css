@@ -1,0 +1,43 @@
+.feed {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background-color: var(--dot-color, var(--color-accent));
+  margin-top: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--dot-color, var(--color-accent)) 15%, transparent);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.text {
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+}
+
+.timestamp {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}

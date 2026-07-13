@@ -1,0 +1,303 @@
+.backdrop {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-width);
+  background-color: var(--color-surface);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  z-index: 40;
+  transition:
+    width var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out);
+}
+
+.sidebar[data-collapsed] {
+  width: var(--sidebar-width-collapsed);
+}
+
+.sidebar[data-collapsed] .navLabel,
+.sidebar[data-collapsed] .sectionLabel,
+.sidebar[data-collapsed] .brandName {
+  display: none;
+}
+
+.mobileCloseButton {
+  display: none;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-5);
+  height: var(--topbar-height);
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-3);
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: visible;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.sectionLabel {
+  padding: 0 var(--space-3);
+  margin-bottom: var(--space-1);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-3);
+  border-radius: var(--radius-md);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  position: relative;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.navLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navItem:hover {
+  background-color: var(--color-surface-raised);
+  color: var(--color-text-primary);
+}
+
+.navItem:hover .navIcon {
+  transform: scale(1.1);
+}
+
+.navItem:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--focus-ring);
+}
+
+.navItemActive {
+  background-color: rgba(var(--color-accent-rgb), 0.12);
+  color: var(--color-text-primary);
+}
+
+.navItemActive .navIcon {
+  color: var(--color-accent);
+}
+
+.navIcon {
+  flex-shrink: 0;
+  color: currentColor;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.navIndicator {
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 20px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-accent);
+  box-shadow: 0 0 8px rgba(var(--color-accent-rgb), 0.7);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.navItemActive .navIndicator {
+  transform: translateY(-50%) scaleY(1);
+}
+
+/* Tooltip shown whenever labels are hidden (collapsed, or forced-narrow breakpoints) */
+[data-tooltip] {
+  position: relative;
+}
+
+.sidebar[data-collapsed] [data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-raised);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 30;
+  transition:
+    opacity var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.sidebar[data-collapsed] [data-tooltip]:hover::after,
+.sidebar[data-collapsed] [data-tooltip]:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.collapseButton {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-5);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+}
+
+.collapseButton:hover {
+  color: var(--color-text-primary);
+}
+
+.collapseIcon {
+  transition: transform var(--duration-base) var(--ease-out);
+  flex-shrink: 0;
+}
+
+.collapseIcon[data-collapsed] {
+  transform: rotate(180deg);
+}
+
+/* ---- Tablet: force a narrow icon-only rail regardless of user toggle ---- */
+@media (max-width: 1024px) and (min-width: 641px) {
+  .sidebar {
+    width: var(--sidebar-width-collapsed);
+  }
+
+  .sidebar .navLabel,
+  .sidebar .sectionLabel,
+  .sidebar .brandName {
+    display: none;
+  }
+
+  .sidebar [data-tooltip]::after {
+    content: attr(data-tooltip);
+  }
+
+  .sidebar [data-tooltip]:hover::after,
+  .sidebar [data-tooltip]:focus-visible::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+/* ---- Mobile: off-canvas drawer ---- */
+@media (max-width: 640px) {
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 35;
+    background-color: rgba(10, 20, 24, 0.55);
+    backdrop-filter: blur(2px);
+    animation: fadeIn var(--duration-base) var(--ease-out);
+  }
+
+  .sidebar {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(280px, 80vw);
+    border-radius: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar[data-mobile-open] {
+    transform: translateX(0);
+  }
+
+  /* On mobile the drawer always shows full labels, independent of the
+     desktop collapse preference. */
+  .sidebar .navLabel,
+  .sidebar .sectionLabel,
+  .sidebar .brandName {
+    display: block;
+  }
+
+  .brandName {
+    flex: 1;
+  }
+
+  .mobileCloseButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+  }
+
+  .mobileCloseButton:hover {
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-primary);
+  }
+
+  .collapseButton {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
