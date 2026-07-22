@@ -19,7 +19,7 @@
     118deg,
     transparent 38%,
     rgba(255, 255, 255, 0.05) 47%,
-    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.13) 50%,
     rgba(255, 255, 255, 0.04) 53%,
     transparent 62%
   );
@@ -28,8 +28,8 @@
   pointer-events: none;
 }
 
-/* Secondary tinted sweep — subtle brand accent bleeding from the corner
-   so the effect still reads as ZKR, not a generic mono background. */
+/* Secondary tinted sweep — subtle brand accent glow bleeding from the corner
+   so the depth reads as ZKR, not a generic mono background. */
 .sweepB {
   position: absolute;
   bottom: -35%;
@@ -45,14 +45,24 @@
   pointer-events: none;
 }
 
-.noise {
-  z-index: 0;
+/* Tertiary ambient glow directly behind the card, so the panel feels lit
+   from within rather than floating on flat black. */
+.shell::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  height: 640px;
+  max-width: 90vw;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(var(--color-accent-rgb), 0.14), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .card {
-    transition: none;
-  }
+.noise {
+  z-index: 0;
 }
 
 .homeLink {
@@ -86,48 +96,73 @@
 .card {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 440px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+}
+
+.glassPanel {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: var(--space-7) var(--space-6);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--color-surface) 55%, transparent),
+    color-mix(in srgb, var(--color-surface) 30%, transparent)
+  );
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.06) inset,
+    var(--shadow-lg),
+    0 30px 80px -30px rgba(var(--color-accent-rgb), 0.35);
 }
 
 .logoMark {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   margin-bottom: var(--space-5);
   border-radius: var(--radius-lg);
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.08) inset,
-    0 12px 30px -12px rgba(var(--color-accent-rgb), 0.5);
+    0 14px 32px -14px rgba(var(--color-accent-rgb), 0.55);
+  overflow: hidden;
 }
 
-.logoMark span {
-  font-family: var(--font-display);
-  font-size: 21px;
-  font-weight: 700;
-  color: #fafafa;
-  letter-spacing: var(--tracking-tight);
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .title {
   font-family: var(--font-display);
   font-size: var(--fs-2xl);
   font-weight: 700;
+  letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
   margin-bottom: var(--space-2);
 }
 
 .subtitle {
   font-size: var(--fs-sm);
+  line-height: 1.55;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-7);
   max-width: 320px;
 }
 
@@ -150,5 +185,14 @@
 
   .content {
     padding: var(--space-4);
+  }
+
+  .glassPanel {
+    padding: var(--space-6) var(--space-4);
+    border-radius: var(--radius-lg);
+  }
+
+  .subtitle {
+    margin-bottom: var(--space-6);
   }
 }

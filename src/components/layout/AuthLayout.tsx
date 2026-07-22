@@ -30,16 +30,18 @@ function AuthLayout({ title, subtitle, children, footer }: AuthLayoutProps) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className={styles.logoMark} aria-hidden="true">
-            <span>Z</span>
+          <div className={styles.glassPanel}>
+            <div className={styles.logoMark}>
+              <img src="/zkr.jpg" alt="ZKR Eclipse" className={styles.logoImage} />
+            </div>
+
+            <h1 className={styles.title}>{title}</h1>
+            <p className={styles.subtitle}>{subtitle}</p>
+
+            <div className={styles.formWrap}>{children}</div>
+
+            {footer && <div className={styles.footer}>{footer}</div>}
           </div>
-
-          <h1 className={styles.title}>{title}</h1>
-          <p className={styles.subtitle}>{subtitle}</p>
-
-          <div className={styles.formWrap}>{children}</div>
-
-          {footer && <div className={styles.footer}>{footer}</div>}
         </motion.div>
       </div>
     </div>
