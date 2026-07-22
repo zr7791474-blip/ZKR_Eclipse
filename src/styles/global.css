@@ -19,6 +19,7 @@ body {
     background-color var(--duration-base) var(--ease-out),
     color var(--duration-base) var(--ease-out);
   -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
 }
 
 #root {
@@ -58,6 +59,28 @@ input {
   outline-offset: 2px;
   box-shadow: 0 0 0 4px var(--focus-ring);
   border-radius: var(--radius-sm);
+}
+
+::selection {
+  background-color: rgba(var(--color-accent-rgb), 0.3);
+  color: var(--color-text-primary);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Subtle film-grain noise overlay, used sparingly on hero/atmosphere surfaces
+   to add depth without extra network requests (inline SVG data-uri). */
+.noise-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @media (prefers-reduced-motion: reduce) {

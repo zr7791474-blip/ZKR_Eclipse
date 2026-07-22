@@ -27,9 +27,25 @@ function LineChart({ data, height = 220, color }: LineChartProps) {
       className={styles.wrap}
       style={color ? ({ height, "--chart-color": color } as CSSProperties) : { height }}
     >
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" className={styles.svg}>
+      <svg
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        className={styles.svg}
+        role="img"
+        aria-label="Trend line chart"
+      >
         <path d={areaPath} className={styles.area} />
-        <path d={linePath} className={styles.line} />
+        <path d={linePath} className={styles.line} pathLength={1} />
+        {data.map((point, index) => {
+          const [x, y] = points[index].split(",").map(Number);
+          return (
+            <circle key={point.label} cx={x} cy={y} r={1.6} className={styles.dot}>
+              <title>
+                {point.label}: {point.value}
+              </title>
+            </circle>
+          );
+        })}
       </svg>
       <div className={styles.labels}>
         {data.map((point) => (

@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "../Reveal";
 import shared from "../LandingShared.module.css";
@@ -64,7 +64,12 @@ function Pricing() {
           {PLANS.map((plan, index) => (
             <Reveal key={plan.name} delay={index * 0.08}>
               <div className={styles.card} data-featured={plan.featured || undefined}>
-                {plan.featured && <span className={styles.badge}>Most popular</span>}
+                {plan.featured && (
+                  <span className={styles.badge}>
+                    <Sparkles size={11} />
+                    Most popular
+                  </span>
+                )}
                 <h3 className={styles.planName}>{plan.name}</h3>
                 <p className={styles.planDescription}>{plan.description}</p>
                 <div className={styles.priceRow}>

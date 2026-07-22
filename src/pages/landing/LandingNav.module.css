@@ -53,13 +53,37 @@
 }
 
 .link {
+  position: relative;
   font-size: var(--fs-sm);
   font-weight: 500;
   color: var(--color-text-secondary);
   transition: color var(--duration-fast) var(--ease-out);
+  padding-bottom: 4px;
 }
 
 .link:hover {
+  color: var(--color-text-primary);
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, var(--color-accent-strong), var(--color-secondary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.link[data-active]::after {
+  transform: scaleX(1);
+}
+
+.link[data-active] {
   color: var(--color-text-primary);
 }
 

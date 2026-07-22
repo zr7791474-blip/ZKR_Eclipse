@@ -16,10 +16,19 @@ function SceneFallback() {
 
 function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
+  const visualRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (!headlineRef.current) return;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     const words = headlineRef.current.querySelectorAll("[data-word]");
+    if (prefersReducedMotion) {
+      gsap.set(words, { y: 0, opacity: 1 });
+      return;
+    }
     gsap.fromTo(
       words,
       { y: 24, opacity: 0 },
@@ -34,9 +43,45 @@ function Hero() {
     );
   }, []);
 
+  useEffect(() => {
+    const hero = heroRef.current;
+    const visual = visualRef.current;
+    if (!hero || !visual) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 1024px)").matches) return;
+
+    let frame = 0;
+    function handlePointerMove(event: PointerEvent) {
+      if (!hero || !visual) return;
+      const rect = hero.getBoundingClientRect();
+      const relX = (event.clientX - rect.left) / rect.width - 0.5;
+      const relY = (event.clientY - rect.top) / rect.height - 0.5;
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        visual.style.transform = `translate3d(${relX * -14}px, ${relY * -14}px, 0)`;
+        hero.style.setProperty("--cursor-x", `${event.clientX - rect.left}px`);
+        hero.style.setProperty("--cursor-y", `${event.clientY - rect.top}px`);
+      });
+    }
+    function handlePointerLeave() {
+      if (!visual) return;
+      visual.style.transform = "translate3d(0, 0, 0)";
+    }
+
+    hero.addEventListener("pointermove", handlePointerMove);
+    hero.addEventListener("pointerleave", handlePointerLeave);
+    return () => {
+      hero.removeEventListener("pointermove", handlePointerMove);
+      hero.removeEventListener("pointerleave", handlePointerLeave);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} ref={heroRef}>
       <div className={styles.glow} aria-hidden="true" />
+      <div className={styles.cursorGlow} aria-hidden="true" />
+      <div className={`${styles.noiseOverlay} noise-overlay`} aria-hidden="true" />
 
       <div className={styles.inner}>
         <div className={styles.copy}>
@@ -110,6 +155,7 @@ function Hero() {
 
         <motion.div
           className={styles.visual}
+          ref={visualRef}
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
