@@ -1,123 +1,124 @@
 .shell {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 100vh;
-  background-color: var(--color-bg);
-}
-
-.illustration {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 100vh;
+  background: radial-gradient(120% 100% at 50% 0%, #0d1114 0%, #060809 60%, #050607 100%);
   overflow: hidden;
-  background: linear-gradient(
-    160deg,
-    rgba(var(--color-accent-rgb), 0.25),
-    rgba(10, 20, 24, 0.9)
-  );
-  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
 }
 
-.blob {
+/* Primary diagonal light sweep — soft silvery band crossing the frame,
+   echoing a folded-light / brushed-metal look. */
+.sweepA {
   position: absolute;
-  border-radius: 50%;
-  filter: blur(60px);
-  animation: float 14s ease-in-out infinite;
+  top: -40%;
+  right: -30%;
+  width: 140%;
+  height: 180%;
+  background: linear-gradient(
+    118deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.05) 47%,
+    rgba(255, 255, 255, 0.14) 50%,
+    rgba(255, 255, 255, 0.04) 53%,
+    transparent 62%
+  );
+  transform: rotate(-6deg);
+  filter: blur(2px);
+  pointer-events: none;
 }
 
-.blob[data-blob="1"] {
-  top: -10%;
-  left: -5%;
-  width: 320px;
-  height: 320px;
-  background: rgba(var(--color-accent-rgb), 0.5);
+/* Secondary tinted sweep — subtle brand accent bleeding from the corner
+   so the effect still reads as ZKR, not a generic mono background. */
+.sweepB {
+  position: absolute;
+  bottom: -35%;
+  left: -25%;
+  width: 110%;
+  height: 130%;
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(var(--color-accent-rgb), 0.16),
+    transparent 60%
+  );
+  filter: blur(10px);
+  pointer-events: none;
 }
 
-.blob[data-blob="2"] {
-  bottom: -15%;
-  right: -10%;
-  width: 380px;
-  height: 380px;
-  background: rgba(var(--color-secondary-rgb), 0.18);
-  animation-delay: -7s;
-}
-
-.blob[data-blob="3"] {
-  top: 40%;
-  left: 30%;
-  width: 220px;
-  height: 220px;
-  background: radial-gradient(circle, var(--color-accent-dark), transparent 70%);
-  animation-delay: -4s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(30px, -20px) scale(1.08);
-  }
+.noise {
+  z-index: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .blob {
-    animation: none;
+  .card {
+    transition: none;
   }
 }
 
-.illustrationContent {
+.homeLink {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  margin: var(--space-5) 0 0 var(--space-6);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.homeLink:hover {
+  color: var(--color-text-primary);
+}
+
+.content {
   position: relative;
   z-index: 1;
-  max-width: 380px;
-  text-align: center;
-  padding: var(--space-6);
-}
-
-.logo {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-lg);
-  object-fit: cover;
-  margin-bottom: var(--space-5);
-  box-shadow: var(--shadow-lg);
-}
-
-.illustrationTitle {
-  font-family: var(--font-display);
-  font-size: var(--fs-2xl);
-  font-weight: 700;
-  color: #fafafa;
-  margin-bottom: var(--space-3);
-}
-
-.illustrationText {
-  font-size: var(--fs-base);
-  line-height: 1.6;
-  color: rgba(250, 250, 250, 0.75);
-}
-
-.formSide {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--space-6);
 }
 
-.formCard {
+.card {
+  position: relative;
   width: 100%;
-  max-width: 380px;
-  padding: var(--space-6);
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logoMark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-5);
   border-radius: var(--radius-lg);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 12px 30px -12px rgba(var(--color-accent-rgb), 0.5);
+}
+
+.logoMark span {
+  font-family: var(--font-display);
+  font-size: 21px;
+  font-weight: 700;
+  color: #fafafa;
+  letter-spacing: var(--tracking-tight);
 }
 
 .title {
   font-family: var(--font-display);
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
   font-weight: 700;
   color: var(--color-text-primary);
   margin-bottom: var(--space-2);
@@ -127,6 +128,12 @@
   font-size: var(--fs-sm);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
+  max-width: 320px;
+}
+
+.formWrap {
+  width: 100%;
+  text-align: left;
 }
 
 .footer {
@@ -136,12 +143,12 @@
   text-align: center;
 }
 
-@media (max-width: 900px) {
-  .shell {
-    grid-template-columns: 1fr;
+@media (max-width: 480px) {
+  .homeLink {
+    margin: var(--space-4) 0 0 var(--space-4);
   }
 
-  .illustration {
-    display: none;
+  .content {
+    padding: var(--space-4);
   }
 }
